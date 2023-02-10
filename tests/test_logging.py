@@ -34,3 +34,12 @@ def test_launch_url_get(rp_logger, rp_launch_id, rp_endpoint, rp_project):
                    rp_project, rp_launch_id)
     assert True
 
+
+def test_attachment_logging(rp_logger):
+    """This is a test which logs an image as byte array."""
+    rp_logger.info("Log as byte array", attachment={
+        "name": 'lucky_pug.jpg',
+        "data": open('res/pug/lucky.jpg', 'rb').read(),
+        "mime": 'image/jpeg',
+    })
+    assert True
